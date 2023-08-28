@@ -1,6 +1,6 @@
-mod string_referencing;
+mod collections;
 
-use string_referencing::simulate;
+use collections::simulate;
 
 fn main() {
     simulate()
