@@ -1,6 +1,6 @@
 // Intro to files
 use rand;
-use std::fs::{File, OpenOptions};
+use std::fs::OpenOptions;
 use std::io::{BufRead, BufReader, BufWriter, Write};
 
 pub fn simulate() {

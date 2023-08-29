@@ -85,3 +85,5 @@ pub fn simulate() {
     simulate_enums();
     simulate_options();
 }
+
+pub(crate) use vectorize;
