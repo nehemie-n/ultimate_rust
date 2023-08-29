@@ -1,6 +1,6 @@
-mod collections;
+mod enum_match;
 
-use collections::simulate;
+use enum_match::simulate;
 
 fn main() {
     simulate()
