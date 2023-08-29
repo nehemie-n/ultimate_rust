@@ -1,6 +1,6 @@
-mod enum_match;
+mod files;
 
-use enum_match::simulate;
+use files::simulate;
 
 fn main() {
     simulate()

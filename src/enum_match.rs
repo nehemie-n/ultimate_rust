@@ -41,7 +41,7 @@ fn random_coordintes() -> Vec<Coordinate> {
     coords
 }
 
-pub fn simulate() {
+fn simulate_enums() {
     let coords = random_coordintes();
 
     let mut lats: i32 = 0;
@@ -63,4 +63,25 @@ pub fn simulate() {
     println!("lngs {lngs}");
     println!("points {points}");
     println!("polygons {polygons}");
+}
+
+fn simulate_options() {
+    let n = Some(5);
+
+    println!("Is N Some? {}", n.is_some());
+    match n {
+        Some(_) => println!("n is Some"),
+        None => println!("n is None"),
+    }
+
+    let result = if n.is_none() {
+        String::from("No result")
+    } else {
+        String::from("Some result")
+    };
+    println!("n result = {result}")
+}
+pub fn simulate() {
+    simulate_enums();
+    simulate_options();
 }
