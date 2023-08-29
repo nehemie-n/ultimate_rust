@@ -1,4 +1,4 @@
-use rand::Rng;
+use rand;
 // Define an enum called "Exercise" with different exercise types
 
 #[derive(Debug, Clone)]
@@ -43,7 +43,24 @@ fn random_coordintes() -> Vec<Coordinate> {
 
 pub fn simulate() {
     let coords = random_coordintes();
+
+    let mut lats: i32 = 0;
+    let mut lngs = 0;
+    let mut points = 0;
+    let mut polygons = 0;
     for coo in coords {
-        println!("{coo:?}");
+        match coo {
+            Coordinate::Lat(_) => lats += 1,
+            Coordinate::Lng(_) => lngs += 1,
+            Coordinate::Point(_, _) => points += 1,
+            Coordinate::Polygon(_) => polygons += 1,
+            #[allow(unreachable_patterns)]
+            _ => println!("REST"), // will not be executed since all conditions are exhausted
+        }
     }
+
+    println!("lats {lats}");
+    println!("lngs {lngs}");
+    println!("points {points}");
+    println!("polygons {polygons}");
 }
