@@ -53,6 +53,8 @@ pub fn simulate_threads_with_channels() {
         // Spawn a new thread with a closure that takes i as an argument
         let sender = sender.clone();
         let handle = thread::spawn(move || {
+            let rand_secs = rand::random::<i16>() as u64;
+            thread::sleep(Duration::from_millis(rand_secs));
             let _ = sender.send(i);
             return rand::random::<i32>();
         });
@@ -63,9 +65,9 @@ pub fn simulate_threads_with_channels() {
     let exit_nbr = thread_rng().gen_range(0..n);
     println!("EXIT = {exit_nbr}");
 
-    for value in receiver {
-        println!("RECEIVED = {value}");
-        if value == exit_nbr {
+    for index in receiver {
+        println!("RECEIVED THREAD = {index}");
+        if index == exit_nbr {
             break;
         }
     }
