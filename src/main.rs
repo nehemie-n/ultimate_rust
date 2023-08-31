@@ -1,8 +1,7 @@
-mod closures;
-mod enum_match;
+mod threads;
 
-use closures::simulate;
+use threads::simulate_threads_with_channels;
 
 fn main() {
-    simulate()
+    simulate_threads_with_channels()
 }
