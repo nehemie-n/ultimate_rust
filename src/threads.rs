@@ -5,6 +5,7 @@ const THREADS_N: i32 = 100;
 
 // Import the env module for accessing command-line arguments
 use std::env;
+use std::time::Duration;
 
 /// compute number of threads to create
 pub fn get_args() -> i32 {
@@ -59,9 +60,12 @@ pub fn simulate_threads_with_channels() {
         threads.push(handle);
     }
 
+    let exit_nbr = thread_rng().gen_range(0..n);
+    println!("EXIT = {exit_nbr}");
+
     for value in receiver {
         println!("RECEIVED = {value}");
-        if value == thread_rng().gen_range(0..n) {
+        if value == exit_nbr {
             break;
         }
     }
